@@ -31,4 +31,4 @@ tokenizer := ft.Tokenizer{}
 When `mergeProperNouns` is set to `true`, proper nous like `Jean-Pierre` will not be broken into three separate tokens, like `Jean - Pierre`; instead, it will remain `Jean-Pierre`. Use it with caution, as it's written with basic heuristic.
 
 ## License
-The MIT license is here [https://github.com/justinsowhat/french-tokenizer/blob/main/LICENSE].
+The MIT license is [here](https://github.com/justinsowhat/french-tokenizer/blob/main/LICENSE).
