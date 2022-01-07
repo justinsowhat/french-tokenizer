@@ -1,5 +1,5 @@
 [![Go](https://github.com/justinsowhat/french-tokenizer/actions/workflows/go.yml/badge.svg)](https://github.com/justinsowhat/french-tokenizer/actions/workflows/go.yml)
-[![Go Reference](https://pkg.go.dev/badge/github.com/justinsowhat/french-tokenizer.svg)](https://pkg.go.dev/github.com/justinsowhat/wordreference-golang)
+[![Go Reference](https://pkg.go.dev/badge/github.com/justinsowhat/french-tokenizer.svg)](https://pkg.go.dev/github.com/justinsowhat/french-tokenizer)
 
 # French Tokenizer
 
