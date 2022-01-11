@@ -8,7 +8,7 @@ import (
 
 func TestTokenizerWithoutMergingProperNouns(t *testing.T) {
 
-	tokenizer := ft.Tokenizer{}
+	tokenizer := ft.FrenchTokenizer{}
 
 	text := " «    Je m'appelle Jean-Pierre, et j'aime faire du foot justqu'au soir. » "
 	mergeProperNouns := false
@@ -20,7 +20,7 @@ func TestTokenizerWithoutMergingProperNouns(t *testing.T) {
 
 func TestTokenizerWithMergingProperNouns(t *testing.T) {
 
-	tokenizer := ft.Tokenizer{}
+	tokenizer := ft.FrenchTokenizer{}
 
 	text := "Jean-Pierre"
 	mergeProperNouns := true
@@ -31,7 +31,7 @@ func TestTokenizerWithMergingProperNouns(t *testing.T) {
 }
 func TestTokenizerURLHttps(t *testing.T) {
 
-	tokenizer := ft.Tokenizer{}
+	tokenizer := ft.FrenchTokenizer{}
 
 	text := "https://www.github.com"
 	mergeProperNouns := true
@@ -43,7 +43,7 @@ func TestTokenizerURLHttps(t *testing.T) {
 
 func TestTokenizerURLHttp(t *testing.T) {
 
-	tokenizer := ft.Tokenizer{}
+	tokenizer := ft.FrenchTokenizer{}
 
 	text := "http://www.github.com"
 	mergeProperNouns := true

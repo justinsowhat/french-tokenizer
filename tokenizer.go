@@ -7,10 +7,14 @@ import (
 	regexp "github.com/dlclark/regexp2"
 )
 
-type Tokenizer struct {
+type Tokenizer interface {
+	Tokenize(text string, mergeProperNouns bool) []string
 }
 
-func (t Tokenizer) Tokenize(text string, mergeProperNouns bool) []string {
+type FrenchTokenizer struct {
+}
+
+func (t FrenchTokenizer) Tokenize(text string, mergeProperNouns bool) []string {
 	// License: this regex pattern is copied from https://github.com/boudinfl/kea/blob/master/kea/kea.py#L63
 	pattern := `(?:xumsi)(?:[lcdjmnts]|qu)[']|(http(s?):[^\s]+\.\w{2,3})|(\d+[.,]\d+)|([.-]+)|(\w+)|([^\w\s])`
 	re := regexp.MustCompile(pattern, regexp.Multiline)
@@ -39,7 +43,7 @@ func (t Tokenizer) Tokenize(text string, mergeProperNouns bool) []string {
 
 // simple heuristic to merge hyphenated proper nouns
 // it is case sensitive
-func (t Tokenizer) mergeHypenatedPropernouns(tokens []string) []string {
+func (t FrenchTokenizer) mergeHypenatedPropernouns(tokens []string) []string {
 
 	var results []string
 
@@ -62,11 +66,11 @@ func (t Tokenizer) mergeHypenatedPropernouns(tokens []string) []string {
 	return results
 }
 
-func (t Tokenizer) shouldMerge(previousWord, nextWord string) bool {
+func (t FrenchTokenizer) shouldMerge(previousWord, nextWord string) bool {
 	return t.isFirstLetterUpperCase(previousWord) && t.isFirstLetterUpperCase(nextWord)
 }
 
-func (t Tokenizer) isFirstLetterUpperCase(word string) bool {
+func (t FrenchTokenizer) isFirstLetterUpperCase(word string) bool {
 	re := regexp.MustCompile(`^[A-Z]\w.*`, 0)
 	m, _ := re.FindStringMatch(word)
 	return m != nil
